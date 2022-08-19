@@ -1,58 +1,45 @@
-import React, { useState, useEffect} from 'react';
-import './App.css';
-import Form from './components/Form';
-import TodoList from './components/TodoList';
-
+import { useState, useEffect } from "react";
+import "./App.css";
+import Form from "./components/Form";
+import TodoList from "./components/TodoList";
 
 function App() {
+  const [input, setInput] = useState("");
+  const [todos, setTodos] = useState([]);
+  const [filter, setFilter] = useState("all");
+  const [filtered, setFiltered] = useState([]);
 
-
-  const [input, setInput] = useState('');
-  const[todos, setTodos] = useState([]);
-  const[filter, setFilter] = useState("all");
-  const[filtered, setFiltered] = useState([]);
-
-  useEffect(()=>{
-   filterHandler();
+  useEffect(() => {
+    filterHandler();
   }, [todos, filter]);
 
-  const filterHandler = ()=>{
-    switch(filter){
-      case 'completed':
-        setFiltered(todos.filter(todo => todo.completed=== true));
-        break;
-        case 'uncompleted':
-        setFiltered(todos.filter(todo => todo.completed=== false));
-        break;
-        default:
-        setFiltered(todos);
-        break;    
+  const filterHandler = () => {
+    if (filter === "completed") {
+      setFiltered(todos.filter((todo) => todo.completed));
+    } else if (filter === "uncompleted") {
+      setFiltered(todos.filter((todo) => !todo.completed));
+    } else {
+      setFiltered(todos);
     }
   };
 
   return (
     <div>
-     <header className='header'>
+      <header className="header">
         <h1>Task List</h1>
-    </header>
+      </header>
 
-   <Form
-   input= {input}
-   setInput={setInput}
-   todos={todos}
-   setTodos={setTodos}
-   setFilter={setFilter}
-   
-   />
+      <Form
+        input={input}
+        setInput={setInput}
+        todos={todos}
+        setTodos={setTodos}
+        setFilter={setFilter}
+      />
 
-  <TodoList 
-  todos={todos}
-  setTodos={setTodos}
-  filtered={filtered}
-  />
-
-</div>
+      <TodoList todos={todos} setTodos={setTodos} filtered={filtered} />
+    </div>
   );
-};
+}
 
 export default App;

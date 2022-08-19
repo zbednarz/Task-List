@@ -44,6 +44,11 @@ form button:hover {
   color:white;
 }
 
+form button:disabled{
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
 .list-container{
   display: flex;
   flex-direction: column;
