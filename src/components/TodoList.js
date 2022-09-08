@@ -1,5 +1,6 @@
 import Todo from "./Todo";
 
+
 const TodoList = ({ todos, setTodos, filtered }) => {
   const onDeleter = (todo) => {
     setTodos(todos.filter((el) => el.id !== todo.id));
