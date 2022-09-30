@@ -6,6 +6,7 @@ const Colors = {
   orange: "#fb8c00",
   white: "#FFF",
   darkblue: "rgb(2, 7, 85)",
+  green: "#00c853",
 };
 
 const theme = createTheme({
@@ -24,6 +25,9 @@ const theme = createTheme({
     },
     blue: {
       main: Colors.blue,
+    },
+    green: {
+      main: Colors.green,
     },
   },
   components: {

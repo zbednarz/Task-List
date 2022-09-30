@@ -1,31 +1,23 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import { Backdrop } from "@mui/material";
+import { useState} from "react";
+import Backdrop from "@mui/material/Backdrop";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
-import { Fade } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import DehazeIcon from "@mui/icons-material/Dehaze";
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "../styles/styles";
-import style from "../styles/MyModal";
-
+import Fade from "@mui/material/Fade";
+import {MyDehazeIcon} from "../styles/MyIcons";
+import { MyCloseIcon } from "../styles/MyIcons";
+import MyBox from "../styles/MyModal";
 
 export default function TransitionsModal() {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
-    <ThemeProvider theme={theme}>
+  
       <div>
         <Button onClick={handleOpen}>
-          <CloseIcon
-           color="orange"
-            style={{
-              fontSize: "56",
-            }}
-          />
+          <MyCloseIcon/>
         </Button>
         <Modal
           aria-labelledby="modal-modal-title"
@@ -38,20 +30,14 @@ export default function TransitionsModal() {
           }}
         >
           <Fade in={open}>
-            <Box sx={style}>
+            <MyBox>
               <Button onClick={handleClose}>
-                <DehazeIcon
-                  color="orange"
-                  style={{
-                    fontSize: "56",
-                    transform: "translate(-10%, -50%)",
-                  }}
-                />
+                <MyDehazeIcon/>
               </Button>
-            </Box>
+            </MyBox>
           </Fade>
         </Modal>
       </div>
-    </ThemeProvider>
+    
   );
 }

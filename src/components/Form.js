@@ -1,15 +1,13 @@
 import uuid from "react-uuid";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "../styles/styles";
 import MyInput from "../styles/MyInput";
 import { NewTask } from "../styles/MyButton";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import MySelect from "../styles/MyForm";
+import { MyBox } from "../styles/MyForm";
 
 const Form = ({ input, setInput, todos, setTodos, setFilter }) => {
   const inputHandler = (e) => {
@@ -27,59 +25,47 @@ const Form = ({ input, setInput, todos, setTodos, setFilter }) => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <form>
-        <Box
-          sx={{
-            "& .MuiTextField-root": { m: 1, width: "10ch" },
-            "& fieldset": { border: "none" },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <div>
-            <MyInput
-              color="primary"
-              id="outlined-size-normal"
-              label={
-                <Typography variant="headline" component="h2" color="secondary">
-                  {" "}
-                  Add Task{" "}
-                </Typography>
-              }
-              value={input}
-              onChange={inputHandler}
-              InputProps={{ disableUnderline: true }}
-            />
-          </div>
-        </Box>
-        <NewTask
-          disabled={!input}
-          onClick={formSubmit}
-          type="submit"
-          variant="contained"
-        >
-          Add new task
-        </NewTask>
+    <form>
+      <MyBox
+        noValidate
+        autoComplete="off"
+      >
+        <div>
+          <MyInput
+            color="primary"
+            id="outlined-size-normal"
+            label={
+              <Typography variant="headline" component="h2" color="secondary">
+                {" "}
+                Add Task{" "}
+              </Typography>
+            }
+            value={input}
+            onChange={inputHandler}
+            InputProps={{ disableUnderline: true }}
+          />
+        </div>
+      </MyBox>
+      <NewTask
+        disabled={!input}
+        onClick={formSubmit}
+        type="submit"
+        variant="contained"
+      >
+        Add new task
+      </NewTask>
 
-        <Box sx={{ minWidth: 150 }}>
-          
-          <FormControl 
-          variant="standard" 
-          // sx={{}} 
-          fullWidth>
-            <InputLabel>Filter</InputLabel>
-            <Select
-              onChange={filterHandler}
-            >
-              <MenuItem value="all">All</MenuItem>
-              <MenuItem value="completed">Completed</MenuItem>
-              <MenuItem value="uncompleted">Pending</MenuItem>
-            </Select>
-          </FormControl>
-        </Box>
-      </form>
-    </ThemeProvider>
+      <Box>
+        <FormControl variant="standard" fullWidth>
+          <InputLabel>Filter</InputLabel>
+          <MySelect onChange={filterHandler}>
+            <MenuItem value="all">All</MenuItem>
+            <MenuItem value="completed">Completed</MenuItem>
+            <MenuItem value="uncompleted">Pending</MenuItem>
+          </MySelect>
+        </FormControl>
+      </Box>
+    </form>
   );
 };
 

@@ -2,7 +2,7 @@ import Todo from "./Todo";
 
 
 const TodoList = ({ todos, setTodos, filtered }) => {
-  const onDeleter = (todo) => {
+  const onDelete = (todo) => {
     setTodos(todos.filter((el) => el.id !== todo.id));
   };
 
@@ -30,7 +30,7 @@ const TodoList = ({ todos, setTodos, filtered }) => {
             todo={todo}
             key={todo.id}
             text={todo.text}
-            onDeleter={() => onDeleter(todo)}
+            onDelete={() => onDelete(todo)}
             onComplete={() => onComplete(todo)}
           />
         ))}

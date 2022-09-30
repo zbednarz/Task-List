@@ -1,39 +1,37 @@
-import { Button } from "@mui/material";
-import { styled } from "@mui/system";
+import Button  from "@mui/material/Button";
+import styled from "@emotion/styled";
 
-const MyButton = styled(Button)(() => ({}));
 
-export const CompleteButton = styled(MyButton)(() => ({
-  margin: "5px",
+export const CompleteButton = styled(Button)(({theme}) => ({
+  margin: theme.spacing(0.625),
   background: "linear-gradient(45deg, #00c853, #b9f6ca)",
-  color: "white",
+  color: theme.palette.common.white,
   ":hover": {
-    color: "green",
-    backgroundColor: "white",
+    color: theme.palette.success.light,
+    backgroundColor: theme.palette.common.white,
     background: "linear-gradient(45deg, white, white)",
   },
 }));
 
-export const DeleteButton = styled(MyButton)(() => ({
-  margin: "5px",
+export const DeleteButton = styled(Button)(({theme}) => ({
+  margin: theme.spacing(0.625),
   background: "linear-gradient(45deg, #dd2c00, #FF9e80)",
-  color: "white",
+  color: theme.palette.common.white,
   ":hover": {
-    color: "red",
+    color: theme.palette.error.main,
     background: "linear-gradient(45deg, white, white)",
   },
 }));
 
-export const NewTask = styled(MyButton)(() => ({
-  color: "secondary",
+export const NewTask = styled(Button)(({theme}) => ({
+  color: theme.palette.secondary.main,
   fontSize: "25px",
   borderRadius: "15px",
   textTransform: "none",
-  backgroundColor: "white",
+  backgroundColor: theme.palette.common.white,
   ":hover": {
-    color: "white",
-    backgroundColor: "darkblue",
+    color: theme.palette.common.white,
+    backgroundColor: theme.palette.info.dark
   },
 }));
 
-export default MyButton;

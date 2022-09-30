@@ -2,18 +2,18 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
-import {
-  Typography,
-  AppBar,
-  Toolbar,
-  Box,
-  Tooltip
-} from "@mui/material";
+import Typography from "@mui/material/Typography";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Box from "@mui/material/Box";
+import Tooltip from "@mui/material/Tooltip";
+
+
 
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./styles/styles";
 import TransitionsModal from "./components/Modal";
-import {PositionAvatar} from './styles/MyAvatar';
+import {MyAvatar} from './styles/MyAvatar';
 import Holder from "./Holder";
 
 
@@ -46,7 +46,7 @@ function App() {
         </Toolbar>
         <Box>
           <Tooltip title="Zbigniew Bednarz">
-            <PositionAvatar
+            <MyAvatar
               src="photo.jpg"
             />
           </Tooltip>

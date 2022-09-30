@@ -1,10 +1,10 @@
-import { Box } from "@mui/material";
-import { styled } from "@mui/system";
+import Box from "@mui/material/Box";
+import styled from "@emotion/styled";
 
-const Holder = styled(Box)(() => ({
-    width: "1200px",
-    background: "#fb8c00",
-    borderRadius: "10px",
+const Holder = styled(Box)(({theme}) => ({
+    width: theme.spacing(150),
+    background: theme.palette.warning.main,
+    borderRadius: theme.spacing(1.25),
     alignItems: "center",
     justifyContent: "center",
     transform: "translate(-50%, 0%)",

@@ -120,9 +120,11 @@ select{
   flex: 1;
   width: 60%;
 }
+.tasks ol{
+  list-style: none;
+}
 .task-item{
   padding: 0rem 0.5rem;
-
   
 }
 

@@ -1,15 +1,12 @@
-import { Avatar } from "@mui/material";
-import { styled } from "@mui/system";
+import Avatar from "@mui/material/Avatar";
+import styled from "@emotion/styled";
 
-const MyAvatar = styled(Avatar)(()=>({
+
+export const MyAvatar = styled(Avatar)(({theme})=>({
+    position: "fixed",
+    top: theme.spacing(1.25),
+    right: theme.spacing(0.625),
+    margin: theme.spacing(0.625),
                
 }));
 
-export const PositionAvatar = styled(MyAvatar)(()=>({
-    position: "fixed",
-    top: "10px",
-    right: "5px",
-    margin: "5px"
-}));
-
-export default MyAvatar;
