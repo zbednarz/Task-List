@@ -1,8 +1,7 @@
-import Button  from "@mui/material/Button";
+import Button from "@mui/material/Button";
 import styled from "@emotion/styled";
 
-
-export const CompleteButton = styled(Button)(({theme}) => ({
+export const CompleteButton = styled(Button)(({ theme }) => ({
   margin: theme.spacing(0.625),
   background: "linear-gradient(45deg, #00c853, #b9f6ca)",
   color: theme.palette.common.white,
@@ -13,7 +12,7 @@ export const CompleteButton = styled(Button)(({theme}) => ({
   },
 }));
 
-export const DeleteButton = styled(Button)(({theme}) => ({
+export const DeleteButton = styled(Button)(({ theme }) => ({
   margin: theme.spacing(0.625),
   background: "linear-gradient(45deg, #dd2c00, #FF9e80)",
   color: theme.palette.common.white,
@@ -23,7 +22,7 @@ export const DeleteButton = styled(Button)(({theme}) => ({
   },
 }));
 
-export const NewTask = styled(Button)(({theme}) => ({
+export const NewTask = styled(Button)(({ theme }) => ({
   color: theme.palette.secondary.main,
   fontSize: "25px",
   borderRadius: "15px",
@@ -31,7 +30,6 @@ export const NewTask = styled(Button)(({theme}) => ({
   backgroundColor: theme.palette.common.white,
   ":hover": {
     color: theme.palette.common.white,
-    backgroundColor: theme.palette.info.dark
+    backgroundColor: theme.palette.info.dark,
   },
 }));
-

@@ -8,14 +8,11 @@ import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import Tooltip from "@mui/material/Tooltip";
 
-
-
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./styles/styles";
 import TransitionsModal from "./components/Modal";
-import {MyAvatar} from './styles/MyAvatar';
+import { MyAvatar } from "./styles/MyAvatar";
 import Holder from "./Holder";
-
 
 function App() {
   const [input, setInput] = useState("");
@@ -46,9 +43,7 @@ function App() {
         </Toolbar>
         <Box>
           <Tooltip title="Zbigniew Bednarz">
-            <MyAvatar
-              src="photo.jpg"
-            />
+            <MyAvatar src="photo.jpg" />
           </Tooltip>
         </Box>
       </AppBar>
@@ -66,7 +61,6 @@ function App() {
         </Holder>
       </div>
     </ThemeProvider>
-    
   );
 }
 

@@ -26,10 +26,7 @@ const Form = ({ input, setInput, todos, setTodos, setFilter }) => {
 
   return (
     <form>
-      <MyBox
-        noValidate
-        autoComplete="off"
-      >
+      <MyBox noValidate autoComplete="off">
         <div>
           <MyInput
             color="primary"

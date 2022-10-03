@@ -1,23 +1,18 @@
-
 import CheckIcon from "@mui/icons-material/Check";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Stack from '@mui/material/Stack';
+import Stack from "@mui/material/Stack";
 
-import {CompleteButton} from "../styles/MyButton";
+import { CompleteButton } from "../styles/MyButton";
 import { DeleteButton } from "../styles/MyButton";
-
 
 const Todo = ({ text, todo, onComplete, onDelete }) => {
   return (
-     
-
-    <li className="tasks">
+    <div className="tasks">
       <li className={`task-item ${todo.completed ? "completed" : ""}`}>
         {text}
       </li>
-      
-      <Stack 
-         direction="row">
+
+      <Stack direction="row">
         <CompleteButton
           variant="contained"
           onClick={onComplete}
@@ -33,8 +28,7 @@ const Todo = ({ text, todo, onComplete, onDelete }) => {
           Delete
         </DeleteButton>
       </Stack>
-    </li>
-  
+    </div>
   );
 };
 
