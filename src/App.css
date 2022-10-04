@@ -5,17 +5,13 @@
 }
 
 body{
-  background-color: #67666d;
+  background-color: #080808;
   color: aliceblue;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
 }
 
-header{
-  font-size: 2rem;
-}
-
-header, form{
+form{
   min-height: 10vh;
   display: flex;
   justify-content: center;
@@ -23,7 +19,7 @@ header, form{
 }
 
 form input, form button{
-  padding: 0.5rem;
+  padding: 0.6rem;
   font-size: 2rem;
   border: none;
   background: white;
@@ -41,12 +37,13 @@ form button{
 
 form button:hover {
   background: RGB(8, 18, 151);
-  color:white;
+  color:rgb(255, 251, 251);
 }
 
 form button:disabled{
   opacity: 0.3;
   cursor: not-allowed;
+  background: rgba(76, 48, 177, 0.945);
 }
 
 .list-container{
@@ -75,11 +72,13 @@ select{
   position: relative;
   overflow: hidden;
   border-radius: 15px;
+  height: 3rem;
 }
 
 select{
   color: #2058c2;
   width: 10rem;
+  height: 3rem;
   cursor: pointer;
   padding: 1rem;
   border-radius: 15px;
@@ -90,7 +89,7 @@ select{
 .filter::after{
   content: "\25BC";
   position: absolute;
-  background: RGB(8, 18, 151);;
+  background: rgb(2, 7, 85);;
   top: 0;
   right: 0;
   padding: 1rem;
@@ -113,16 +112,19 @@ select{
   justify-content: space-between;
   align-items: center;
   transition: all 0.5s ease;
+  border-radius: 10px;
   
 }
 
 .tasks  li{
   flex: 1;
-  width: 50%;
+  width: 60%;
+}
+.tasks ol{
+  list-style: none;
 }
 .task-item{
   padding: 0rem 0.5rem;
-
   
 }
 
@@ -136,15 +138,10 @@ select{
   margin: 1px;
   transition: all 0.4s ease;
 }
-.btn-completed{
-  background: green;
-}
+
 .btn-completed:hover{
   background: white;
   color: green;
-}
-.btn-delete{
-  background: red;
 }
 
 .btn-delete:hover{
@@ -154,5 +151,5 @@ select{
 
 .completed{
   text-decoration: line-through;
-    opacity: 0.5;
+    opacity: 0.6;
 }

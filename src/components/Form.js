@@ -1,4 +1,13 @@
 import uuid from "react-uuid";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import MyInput from "../styles/MyInput";
+import { NewTask } from "../styles/MyButton";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import MySelect from "../styles/MyForm";
+import { MyBox } from "../styles/MyForm";
 
 const Form = ({ input, setInput, todos, setTodos, setFilter }) => {
   const inputHandler = (e) => {
@@ -17,24 +26,42 @@ const Form = ({ input, setInput, todos, setTodos, setFilter }) => {
 
   return (
     <form>
-      <input
-        type="text"
-        name="name"
-        placeholder="Add Task"
-        value={input}
-        onChange={inputHandler}
-      />
-      <button onClick={formSubmit} disabled={!input} type="submit">
+      <MyBox noValidate autoComplete="off">
+        <div>
+          <MyInput
+            color="primary"
+            id="outlined-size-normal"
+            label={
+              <Typography variant="headline" component="h2" color="secondary">
+                {" "}
+                Add Task{" "}
+              </Typography>
+            }
+            value={input}
+            onChange={inputHandler}
+            InputProps={{ disableUnderline: true }}
+          />
+        </div>
+      </MyBox>
+      <NewTask
+        disabled={!input}
+        onClick={formSubmit}
+        type="submit"
+        variant="contained"
+      >
         Add new task
-      </button>
+      </NewTask>
 
-      <div className="filter">
-        <select onChange={filterHandler}>
-          <option value="all">All</option>
-          <option value="completed">Done</option>
-          <option value="uncompleted">Pending</option>
-        </select>
-      </div>
+      <Box>
+        <FormControl variant="standard" fullWidth>
+          <InputLabel>Filter</InputLabel>
+          <MySelect onChange={filterHandler}>
+            <MenuItem value="all">All</MenuItem>
+            <MenuItem value="completed">Completed</MenuItem>
+            <MenuItem value="uncompleted">Pending</MenuItem>
+          </MySelect>
+        </FormControl>
+      </Box>
     </form>
   );
 };
