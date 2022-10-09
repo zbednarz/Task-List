@@ -1,7 +1,6 @@
 import CheckIcon from "@mui/icons-material/Check";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Stack from "@mui/material/Stack";
-
 import { CompleteButton } from "../styles/MyButton";
 import { DeleteButton } from "../styles/MyButton";
 

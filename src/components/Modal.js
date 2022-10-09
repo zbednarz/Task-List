@@ -8,6 +8,7 @@ import { MyDehazeIcon } from "../styles/MyIcons";
 import { MyCloseIcon } from "../styles/MyIcons";
 import MyBox from "../styles/MyModal";
 
+
 export default function TransitionsModal() {
   const [open, setOpen] = useState(true);
   const handleOpen = () => setOpen(true);
