@@ -54,3 +54,8 @@ form button:disabled{
   flex: 1;
   width: 60%;
 }
+
+.completed{
+  text-decoration: line-through;
+    opacity: 0.6;
+}
