@@ -59,3 +59,19 @@ form button:disabled{
   text-decoration: line-through;
     opacity: 0.6;
 }
+
+select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+}
+
+p {
+  color: #1619bf;
+}
+
+p::before {
+  display: inline;
+  content: "⚠ ";}

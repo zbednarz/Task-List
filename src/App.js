@@ -14,7 +14,6 @@ import { MyAvatar } from "./styles/MyAvatar";
 import Holder from "./Holder";
 
 export default function App() {
-  const [input, setInput] = useState("");
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
   const [filtered, setFiltered] = useState([]);
@@ -51,8 +50,6 @@ export default function App() {
       <div>
         <Holder>
           <Form
-            input={input}
-            setInput={setInput}
             todos={todos}
             setTodos={setTodos}
             setFilter={setFilter}

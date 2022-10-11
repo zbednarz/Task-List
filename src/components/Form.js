@@ -8,39 +8,29 @@ import { MenuItem } from "@mui/material";
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
 
-const Form = ({ input, setInput, todos, setTodos, setFilter, filter }) => {
-  const inputHandler = (e) => {
-    setInput(e.target.value);
-  };
-
-  const formSubmit = (e) => {
-    e.preventDefault();
-    setTodos([...todos, { text: input, completed: false, id: uuid() }]);
-    setInput("");
-  };
+const Form = ({ todos, setTodos, setFilter }) => {
 
   const filterHandler = (e) => {
     setFilter(e.target.value);
   };
+  const { handleSubmit, control } = useForm();
 
-  const {
-    handleSubmit,
-    control,
-    // formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log('data', data)
+    setTodos([...todos, { text: data.task, completed: false, id: uuid() }]);
+  };
 
   const options = [
     { text: "All", value: "all" },
     { text: "Completed", value: "completed" },
     { text: "Pending", value: "uncompleted" },
   ];
-
   return (
     <MyBox noValidate autoComplete="off">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form>
         <Controller
           name="task"
+          defaultValue={''}
           control={control}
           rules={{ required: true }}
           render={({ field }) => (
@@ -52,37 +42,19 @@ const Form = ({ input, setInput, todos, setTodos, setFilter, filter }) => {
                   Add Task{" "}
                 </Typography>
               }
-              onChange={inputHandler}
-              placeholder="Task"
-              type="text"
-              value={input}
             />
           )}
         />
-        <NewTask onClick={formSubmit} variant="contained">
-          Add new task
-        </NewTask>
-        <Controller
-          name="options"
-          control={control}
-          render={({ field }) => (
-            <MySelect
-              value={filter}
-              defaultValue="all"
-              label="Filter"
-              {...field} 
-              onChange={filterHandler}
-            >
-              {options.map((option, index) => (
-                <MenuItem 
-                key={index} 
-                value={option.value || ''}>
-                {option.text}
-                </MenuItem>
-              ))}
-            </MySelect>
-          )}
-        />
+      
+        <NewTask onClick={handleSubmit(onSubmit)}>Add new task</NewTask>
+
+        <MySelect onChange={filterHandler} defaultValue={"all"}>
+          {options.map((option, index) => (
+            <MenuItem key={index} value={option.value || ""}>
+              {option.text}
+            </MenuItem>
+          ))}
+        </MySelect>
       </form>
     </MyBox>
   );
