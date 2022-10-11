@@ -4,7 +4,12 @@ import Box from "@mui/material/Box";
 
 export const MySelect = styled(Select)(({ theme }) => ({
   minWidth: "180px",
-  height: "36px",
+  height: "56px",
+  background: theme.palette.common.white,
+  margin: theme.spacing(0.625),
+  borderRadius: "15px",
+  fontSize: "24px",
+
 }));
 
 export default MySelect;

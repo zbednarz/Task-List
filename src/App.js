@@ -7,19 +7,17 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import Tooltip from "@mui/material/Tooltip";
-
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./styles/styles";
 import TransitionsModal from "./components/Modal";
 import { MyAvatar } from "./styles/MyAvatar";
 import Holder from "./Holder";
 
-function App() {
-  const [input, setInput] = useState("");
+export default function App() {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
   const [filtered, setFiltered] = useState([]);
-
+ 
   useEffect(() => {
     filterHandler();
   }, [todos, filter]);
@@ -35,6 +33,7 @@ function App() {
   };
 
   return (
+
     <ThemeProvider theme={theme}>
       <AppBar position="relative" color="secondary">
         <Toolbar>
@@ -51,8 +50,6 @@ function App() {
       <div>
         <Holder>
           <Form
-            input={input}
-            setInput={setInput}
             todos={todos}
             setTodos={setTodos}
             setFilter={setFilter}
@@ -64,4 +61,3 @@ function App() {
   );
 }
 
-export default App;
