@@ -23,7 +23,6 @@ form button:disabled{
   cursor: not-allowed;
   background: rgba(76, 48, 177, 0.945);
 }
-
 .list-container{
   display: flex;
   flex-direction: column;
@@ -67,11 +66,3 @@ select{
   outline: none;
   border: none;
 }
-
-p {
-  color: #1619bf;
-}
-
-p::before {
-  display: inline;
-  content: "⚠ ";}
