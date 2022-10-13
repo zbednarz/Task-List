@@ -8,15 +8,15 @@ import { MenuItem } from "@mui/material";
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { object, string } from "yup";
 
 const Form = ({ todos, setTodos, setFilter }) => {
   const filterHandler = (e) => {
     setFilter(e.target.value);
   };
 
-  const schema = yup.object().shape({
-    task: yup.string().min(4).max(12).required(),
+  const schema = object().shape({
+    task: string().min(4).max(12).required(),
   });
 
   const {
@@ -32,7 +32,6 @@ const Form = ({ todos, setTodos, setFilter }) => {
   });
 
   const onSubmit = (data) => {
-    console.log("data", data);
     setTodos([...todos, { text: data.task, completed: false, id: uuid() }]);
     reset({
       task: "",
@@ -45,6 +44,7 @@ const Form = ({ todos, setTodos, setFilter }) => {
     { text: "Pending", value: "uncompleted" },
   ];
 
+  const { task } = errors;
   return (
     <MyBox noValidate autoComplete="off">
       <form>
@@ -54,8 +54,9 @@ const Form = ({ todos, setTodos, setFilter }) => {
           rules={{ required: true }}
           render={({ field }) => (
             <MyInput
-              error={!!errors?.task}
-              helperText={errors?.task ? errors.task.message : null}
+              id="outlined-helper-text"
+              error={!!task}
+              helperText= {task ? task.message : null}
               {...field}
               label={
                 <Typography variant="headline" component="h2" color="secondary">
@@ -69,7 +70,7 @@ const Form = ({ todos, setTodos, setFilter }) => {
 
         <NewTask onClick={handleSubmit(onSubmit)}>Add new task</NewTask>
 
-        <MySelect name="select" onChange={filterHandler} defaultValue={"all"}>
+        <MySelect onChange={filterHandler} defaultValue={"all"}>
           {options.map((option, index) => (
             <MenuItem key={index} value={option.value || ""}>
               {option.text}
