@@ -18,25 +18,22 @@ const Form = ({ todos, setTodos, setFilter }) => {
   const schema = object().shape({
     task: string().min(4).max(12).required(),
   });
-  const defValues= {
-    task: ""
-  }
+  const defaultValues = {
+    task: "",
+  };
 
   const {
     handleSubmit,
     control,
     reset,
-    formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-    defValues,
+    defaultValues,
   });
 
   const onSubmit = (data) => {
     setTodos([...todos, { text: data.task, completed: false, id: uuid() }]);
-    reset({
-      defValues
-    });
+    reset(defaultValues);
   };
 
   const options = [
@@ -45,8 +42,6 @@ const Form = ({ todos, setTodos, setFilter }) => {
     { text: "Pending", value: "uncompleted" },
   ];
 
- const { task } = errors;
-
   return (
     <MyBox noValidate autoComplete="off">
       <form>
@@ -54,11 +49,11 @@ const Form = ({ todos, setTodos, setFilter }) => {
           name="task"
           control={control}
           rules={{ required: true }}
-          render={({ field, formState }) => (
+          render={({ field, fieldState }) => (
             <MyInput
               id="outlined-helper-text"
-              error={!!formState.errors?.task}
-              helperText= {task ? task.message : null}
+              error={!!fieldState.error}
+              helperText={fieldState?.error?.message}
               {...field}
               label={
                 <Typography variant="headline" component="h2" color="secondary">
