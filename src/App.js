@@ -19,7 +19,8 @@ export default function App() {
   const [filtered, setFiltered] = useState([]);
  
   useEffect(() => {
-    filterHandler();
+    
+    filterHandler();// eslint-disable-next-line
   }, [todos, filter]);
 
   const filterHandler = () => {
