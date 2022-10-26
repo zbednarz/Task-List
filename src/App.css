@@ -14,7 +14,6 @@ body{
 }
 
 form{
- 
   display: flex; 
   flex-wrap: wrap;
   justify-content: center;
@@ -30,36 +29,37 @@ form button:disabled{
 .list-container{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
- 
 }
 .todo-list{
-  min-width: 40%;
-  list-style: none;
-  text-align: center;
  
+  list-style: none;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-right: 1rem;
 }
 
-.tasks{
+/* .tasks{
   margin: 0.5rem;
   background: white;
   color: black; 
   font-size: 1.5rem;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
   align-items: center;
   transition: all 0.5s ease;
   border-radius: 10px;
   
   
-}
+} */
 
 .tasks  li{
   flex: 1;
-   
- 
+
 }
 
 .completed{
