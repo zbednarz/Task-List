@@ -51,7 +51,6 @@ const Form = ({ todos, setTodos, setFilter }) => {
           rules={{ required: true }}
           render={({ field, fieldState }) => (
             <MyInput
-              id="outlined-helper-text"
               error={!!fieldState.error}
               helperText={fieldState?.error?.message}
               {...field}

@@ -3,7 +3,7 @@ import "./App.css";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
 import Typography from "@mui/material/Typography";
-import AppBar from "@mui/material/AppBar";
+import { MyAppBar } from "./styles/MyAppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import Tooltip from "@mui/material/Tooltip";
@@ -36,7 +36,7 @@ export default function App() {
   return (
 
     <ThemeProvider theme={theme}>
-      <AppBar position="relative" color="secondary">
+      <MyAppBar color = "secondary">
         <Toolbar>
           <TransitionsModal />
           <Typography variant="h5">Task List</Typography>
@@ -46,7 +46,7 @@ export default function App() {
             <MyAvatar src="photo.jpg" />
           </Tooltip>
         </Box>
-      </AppBar>
+      </MyAppBar> 
 
       <div>
         <Holder>
