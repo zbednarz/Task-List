@@ -1,7 +1,7 @@
 
 import Todo from "./Todo";
-import List from '@mui/material/List';
 import { MyList } from "../styles/MyList";
+import { ListContainer } from "../styles/ListContainer";
 
 const TodoList = ({ todos, setTodos, filtered }) => {
   const onDelete = (todo) => {
@@ -23,7 +23,7 @@ const TodoList = ({ todos, setTodos, filtered }) => {
   };
 
   return (
-    <div className="list-container">
+    <ListContainer>
       <MyList>
         {filtered.map((todo) => (
           <Todo
@@ -37,7 +37,7 @@ const TodoList = ({ todos, setTodos, filtered }) => {
           />
         ))}
       </MyList>
-    </div>
+    </ListContainer>
   );
 };
 

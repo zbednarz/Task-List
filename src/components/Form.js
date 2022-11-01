@@ -9,6 +9,7 @@ import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { object, string } from "yup";
+import { MyBoxControl } from "../styles/MyBoxControl";
 
 const Form = ({ todos, setTodos, setFilter }) => {
   const filterHandler = (e) => {
@@ -44,7 +45,7 @@ const Form = ({ todos, setTodos, setFilter }) => {
 
   return (
     <MyBox noValidate autoComplete="off">
-      <form>
+      <MyBoxControl>
         <Controller
           name="task"
           control={control}
@@ -73,7 +74,7 @@ const Form = ({ todos, setTodos, setFilter }) => {
             </MenuItem>
           ))}
         </MySelect>
-      </form>
+      </MyBoxControl>
     </MyBox>
   );
 };

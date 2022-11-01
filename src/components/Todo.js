@@ -2,8 +2,8 @@ import CheckIcon from "@mui/icons-material/Check";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { CompleteButton } from "../styles/MyButton";
 import { DeleteButton } from "../styles/MyButton";
-import Stack from "@mui/material/Stack";
 import { MyContainer } from "../styles/MyContainer";
+import { MyStack } from "../styles/MyStack";
 
 const Todo = ({ text, todo, onComplete, onDelete }) => {
   return (
@@ -12,7 +12,7 @@ const Todo = ({ text, todo, onComplete, onDelete }) => {
         {text}
       </li>
 
-      <Stack  direction={{ xs: "column", sm: "column", md: "row"}}>
+      <MyStack>
         <CompleteButton
           variant="contained"
           onClick={onComplete}
@@ -27,7 +27,7 @@ const Todo = ({ text, todo, onComplete, onDelete }) => {
         >
           Delete
         </DeleteButton>
-      </Stack>
+      </MyStack>
     </MyContainer>
   );
 };

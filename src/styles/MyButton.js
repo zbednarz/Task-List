@@ -7,6 +7,9 @@ export const CompleteButton = styled(Button)(({ theme }) => ({
   background: "linear-gradient(45deg, #00c853, #b9f6ca)",
   color: theme.palette.common.white,
   width: "90%",
+  [theme.breakpoints.up("xs")]: {
+    fontSize: "13px",
+   },
   
   ":hover": {
     color: theme.palette.success.light,
@@ -20,6 +23,9 @@ export const DeleteButton = styled(Button)(({ theme }) => ({
   background: "linear-gradient(45deg, #dd2c00, #FF9e80)",
   color: theme.palette.common.white,
   width: "90%",
+  [theme.breakpoints.up("xs")]: {
+    fontSize: "13px",
+   },
   ":hover": {
     color: theme.palette.error.main,
     background: "linear-gradient(45deg, white, white)",
