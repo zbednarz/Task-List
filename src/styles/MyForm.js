@@ -2,22 +2,15 @@ import styled from "@emotion/styled";
 import Select from "@mui/material/Select";
 import Box from "@mui/material/Box";
 
-
 export const MySelect = styled(Select)(({ theme }) => ({
   height: "50px",
   background: theme.palette.common.white,
-  margin: theme.spacing(.625),
+  margin: theme.spacing(0.625),
   borderRadius: "15px",
   fontSize: "24px",
-  
+
   [theme.breakpoints.up("xs")]: {
     width: "100%",
-  },
-  [theme.breakpoints.down("sx")]: {
-    width: "100%",
-  },
-  [theme.breakpoints.up("sx")]: {
-    width: "10%",
   },
   [theme.breakpoints.up("sm")]: {
     width: "50%",
@@ -28,7 +21,6 @@ export const MySelect = styled(Select)(({ theme }) => ({
   [theme.breakpoints.up("lg")]: {
     width: "20%",
   },
-  
 }));
 
 export default MySelect;
