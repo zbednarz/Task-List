@@ -1,4 +1,7 @@
+
 import Todo from "./Todo";
+import { MyList } from "../styles/MyList";
+import { ListContainer } from "../styles/ListContainer";
 
 const TodoList = ({ todos, setTodos, filtered }) => {
   const onDelete = (todo) => {
@@ -20,8 +23,8 @@ const TodoList = ({ todos, setTodos, filtered }) => {
   };
 
   return (
-    <div className="list-container">
-      <ul className="todo-list">
+    <ListContainer>
+      <MyList>
         {filtered.map((todo) => (
           <Todo
             setTodos={setTodos}
@@ -33,8 +36,8 @@ const TodoList = ({ todos, setTodos, filtered }) => {
             onComplete={() => onComplete(todo)}
           />
         ))}
-      </ul>
-    </div>
+      </MyList>
+    </ListContainer>
   );
 };
 

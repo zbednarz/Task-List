@@ -10,6 +10,7 @@ const Colors = {
 };
 
 const theme = createTheme({
+  
   palette: {
     primary: {
       main: Colors.primary,

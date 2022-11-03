@@ -7,17 +7,34 @@ import MySelect from "../styles/MyForm";
 import { MenuItem } from "@mui/material";
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { object, string } from "yup";
+import { MyBoxControl } from "../styles/MyBoxControl";
 
 const Form = ({ todos, setTodos, setFilter }) => {
-
   const filterHandler = (e) => {
     setFilter(e.target.value);
   };
-  const { handleSubmit, control } = useForm();
+
+  const schema = object().shape({
+    task: string().min(4).max(12).required(),
+  });
+  const defaultValues = {
+    task: "",
+  };
+
+  const {
+    handleSubmit,
+    control,
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+    defaultValues,
+  });
 
   const onSubmit = (data) => {
-    console.log('data', data)
     setTodos([...todos, { text: data.task, completed: false, id: uuid() }]);
+    reset(defaultValues);
   };
 
   const options = [
@@ -25,16 +42,18 @@ const Form = ({ todos, setTodos, setFilter }) => {
     { text: "Completed", value: "completed" },
     { text: "Pending", value: "uncompleted" },
   ];
+
   return (
     <MyBox noValidate autoComplete="off">
-      <form>
+      <MyBoxControl>
         <Controller
           name="task"
-          defaultValue={''}
           control={control}
           rules={{ required: true }}
-          render={({ field }) => (
+          render={({ field, fieldState }) => (
             <MyInput
+              error={!!fieldState.error}
+              helperText={fieldState?.error?.message}
               {...field}
               label={
                 <Typography variant="headline" component="h2" color="secondary">
@@ -45,7 +64,7 @@ const Form = ({ todos, setTodos, setFilter }) => {
             />
           )}
         />
-      
+
         <NewTask onClick={handleSubmit(onSubmit)}>Add new task</NewTask>
 
         <MySelect onChange={filterHandler} defaultValue={"all"}>
@@ -55,7 +74,7 @@ const Form = ({ todos, setTodos, setFilter }) => {
             </MenuItem>
           ))}
         </MySelect>
-      </form>
+      </MyBoxControl>
     </MyBox>
   );
 };
