@@ -1,9 +1,9 @@
+import Navbar from "./Navbar";
 
-import ResponsiveAppBar from "./MainNavigation";
 
 const Layout = () => {
   return (
-    <ResponsiveAppBar/>
+    <Navbar/>
 
   );
 };

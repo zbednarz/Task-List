@@ -1,22 +1,19 @@
 import { useState, useEffect } from "react";
 import "../App.css";
 import Form from "../components/Form";
-import TodoList from "../components/TodoList";
+import TodoList from "./TodoList";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../styles/styles";
 import Holder from "../Holder";
-import Layout from "../layout/Layout";
-
-
+import { Link, Outlet } from "react-router-dom";
 
 export default function Home() {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
   const [filtered, setFiltered] = useState([]);
- 
+
   useEffect(() => {
-    
-    filterHandler();// eslint-disable-next-line
+    filterHandler(); // eslint-disable-next-line
   }, [todos, filter]);
 
   const filterHandler = () => {
@@ -30,19 +27,18 @@ export default function Home() {
   };
 
   return (
-
     <ThemeProvider theme={theme}>
-      <Layout/>
-      <div>
-        <Holder>
-          <Form
-            todos={todos}
-            setTodos={setTodos}
-            setFilter={setFilter}
-          />
-          <TodoList todos={todos} setTodos={setTodos} filtered={filtered} />
-        </Holder>
-      </div>
+      <h1>Welcome to my Homepage</h1>
+      
+      
+      {/* <Holder>
+         <Form todos={todos} setTodos={setTodos} setFilter={setFilter} /> 
+         <TodoList todos={todos} setTodos={setTodos} filtered={filtered} /> 
+      </Holder> */}
+
+     
+     
+      
     </ThemeProvider>
   );
 }
