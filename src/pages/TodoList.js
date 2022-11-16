@@ -1,11 +1,10 @@
 import Todo from "./Todo";
 import { MyList } from "../styles/MyList";
 import { ListContainer } from "../styles/ListContainer";
-import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
+import { MyTypography } from "../styles/MyTypography";
+import Holder from "../Holder";
 
-
-const TodoList = ({ todos, setTodos, filtered }) => {
+const TodoList = ({ todos, setTodos, filtered, setFilter }) => {
   const onDelete = (todo) => {
     setTodos(todos.filter((el) => el.id !== todo.id));
   };
@@ -26,26 +25,25 @@ const TodoList = ({ todos, setTodos, filtered }) => {
 
   return (
     <div>
-      <h1>Todo List</h1>
-      <Link to="/">
-        <Button>Homepage</Button>
-      </Link>
+      <Holder>
+        <MyTypography variant="h4">Todo List</MyTypography>
+      </Holder>
 
-      {/* <ListContainer>
-      <MyList>
-        {filtered.map((todo) => (
-          <Todo
-            setTodos={setTodos}
-            todos={todos}
-            todo={todo}
-            key={todo.id}
-            text={todo.text}
-            onDelete={() => onDelete(todo)}
-            onComplete={() => onComplete(todo)}
-          />
-        ))}
-      </MyList>
-    </ListContainer> */}
+      <ListContainer>
+        <MyList>
+          {filtered.map((todo) => (
+            <Todo
+              setTodos={setTodos}
+              todos={todos}
+              todo={todo}
+              key={todo.id}
+              text={todo.text}
+              onDelete={() => onDelete(todo)}
+              onComplete={() => onComplete(todo)}
+            />
+          ))}
+        </MyList>
+      </ListContainer>
     </div>
   );
 };

@@ -12,7 +12,6 @@ const Holder = styled(Box)(({ theme }) => ({
   position: "relative",
   top: "25px",
   left: "50%",
- 
 }));
 
 export default Holder;

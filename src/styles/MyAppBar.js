@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 
 export const MyAppBar = styled(AppBar)(({ theme }) => ({
   position: "static",
-  color: "secondary",
+  backgroundColor: theme.palette.common.white,
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",

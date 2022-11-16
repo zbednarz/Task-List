@@ -12,13 +12,11 @@ export const MyBoxBottomNavigation = styled(Box)(({ theme }) => ({
   bottom: "0",
   textAlign: "center",
   paddingBottom: "30px",
-  width:"100%",
-  
+  width: "100%",
 }));
 
 export const MyMenuItem = styled(MenuItem)(({ theme }) => ({
   backgroundColor: "#000",
-  
 }));
 
 export const MyLink = styled(Link)(({ theme }) => ({

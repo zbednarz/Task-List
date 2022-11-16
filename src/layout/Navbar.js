@@ -10,12 +10,11 @@ import { MyLink } from "../styles/MyNavbar";
 const Navbar = () => {
   return (
     <ThemeProvider theme={theme}>
-      <MyAppBar color="secondary">
+      <MyAppBar>
         <Toolbar>
           <MyLink to="/">Home</MyLink>
           <MyLink to="form">Form</MyLink>
           <MyLink to="todolist">Todo List</MyLink>
-          <MyLink to="todo">Todo</MyLink>
         </Toolbar>
         <Box>
           <Tooltip title="Zbigniew Bednarz">

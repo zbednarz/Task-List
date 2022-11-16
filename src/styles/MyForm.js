@@ -31,7 +31,7 @@ export const MyBox = styled(Box)(({ theme }) => ({
 }));
 
 export const MyBoxControl = styled(Box)(({ theme }) => ({
-  display: "flex", 
+  display: "flex",
   flexWrap: "wrap",
   justifyContent: "center",
   alignItems: "center",

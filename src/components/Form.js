@@ -13,10 +13,9 @@ import { MyBoxControl } from "../styles/MyBoxControl";
 import Holder from "../Holder";
 import theme from "../styles/styles";
 import { ThemeProvider } from "@mui/material/styles";
-import TodoList from "../pages/TodoList";
 
 
-const Form = ({ todos, setTodos, setFilter, filtered }) => {
+const Form = ({ todos, setTodos, setFilter }) => {
   const filterHandler = (e) => {
     setFilter(e.target.value);
   };
@@ -83,8 +82,6 @@ const Form = ({ todos, setTodos, setFilter, filtered }) => {
             </MySelect>
           </MyBoxControl>
         </MyBox>
-        {/* <TodoList todos={todos} setTodos={setTodos} filtered={filtered} /> */}
-
       </Holder>
     </ThemeProvider>
   );
