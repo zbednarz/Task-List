@@ -7,7 +7,6 @@ import { MyDehazeIcon } from "../styles/MyIcons";
 import { MyCloseIcon } from "../styles/MyIcons";
 import MyBox from "../styles/MyModal";
 
-
 export default function TransitionsModal() {
   const [open, setOpen] = useState(true);
   const handleOpen = () => setOpen(true);
@@ -28,11 +27,11 @@ export default function TransitionsModal() {
           timeout: 0,
         }}
       >
-          <MyBox>
-            <Button onClick={handleClose}>
-              <MyDehazeIcon />
-            </Button>
-          </MyBox>
+        <MyBox>
+          <Button onClick={handleClose}>
+            <MyDehazeIcon />
+          </Button>
+        </MyBox>
       </Modal>
     </div>
   );

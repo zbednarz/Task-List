@@ -1,26 +1,22 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Todo from "./pages/Todo";
 import Form from "./components/Form";
-import TodoList from "./components/TodoList";
-import Typography from "@mui/material/Typography";
-import { MyAppBar } from "./styles/MyAppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Box from "@mui/material/Box";
-import Tooltip from "@mui/material/Tooltip";
-import { ThemeProvider } from "@mui/material/styles";
+import TodoList from "./pages/TodoList";
+import Error from "./pages/Error";
+import SharedLayout from "./pages/SharedLayout";
 import theme from "./styles/styles";
-import TransitionsModal from "./components/Modal";
-import { MyAvatar } from "./styles/MyAvatar";
-import Holder from "./Holder";
+import { ThemeProvider } from "@mui/material/styles";
 
-export default function App() {
+function App() {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
   const [filtered, setFiltered] = useState([]);
- 
+
   useEffect(() => {
-    
-    filterHandler();// eslint-disable-next-line
+    filterHandler(); // eslint-disable-next-line
   }, [todos, filter]);
 
   const filterHandler = () => {
@@ -34,31 +30,34 @@ export default function App() {
   };
 
   return (
-
     <ThemeProvider theme={theme}>
-      <MyAppBar color = "secondary">
-        <Toolbar>
-          <TransitionsModal />
-          <Typography variant="h5">Task List</Typography>
-        </Toolbar>
-        <Box>
-          <Tooltip title="Zbigniew Bednarz">
-            <MyAvatar src="photo.jpg" />
-          </Tooltip>
-        </Box>
-      </MyAppBar> 
-
-      <div>
-        <Holder>
-          <Form
-            todos={todos}
-            setTodos={setTodos}
-            setFilter={setFilter}
-          />
-          <TodoList todos={todos} setTodos={setTodos} filtered={filtered} />
-        </Holder>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<Home />} />
+            <Route
+              path="form"
+              element={
+                <Form todos={todos} setTodos={setTodos} setFilter={setFilter} />
+              }
+            />
+            <Route path="todo" element={<Todo />} />
+            <Route
+              path="todolist"
+              element={
+                <TodoList
+                  filtered={filtered}
+                  todos={todos}
+                  setTodos={setTodos}
+                />
+              }
+            />
+            <Route path="*" element={<Error />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
 
+export default App;

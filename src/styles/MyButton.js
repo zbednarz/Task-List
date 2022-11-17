@@ -2,12 +2,12 @@ import Button from "@mui/material/Button";
 import styled from "@emotion/styled";
 
 export const CompleteButton = styled(Button)(({ theme }) => ({
-  margin: theme.spacing(0.625),
+  margin: theme.spacing(0.5),
   background: "linear-gradient(45deg, #00c853, #b9f6ca)",
   color: theme.palette.common.white,
   width: "90%",
   [theme.breakpoints.up("xs")]: {
-    fontSize: "13px",
+    fontSize: "12px",
   },
 
   ":hover": {
@@ -18,16 +18,35 @@ export const CompleteButton = styled(Button)(({ theme }) => ({
 }));
 
 export const DeleteButton = styled(Button)(({ theme }) => ({
-  margin: theme.spacing(0.625),
+  margin: theme.spacing(0.5),
   background: "linear-gradient(45deg, #dd2c00, #FF9e80)",
   color: theme.palette.common.white,
   width: "90%",
   [theme.breakpoints.up("xs")]: {
-    fontSize: "13px",
+    fontSize: "12px",
   },
   ":hover": {
     color: theme.palette.error.main,
     background: "linear-gradient(45deg, white, white)",
+  },
+}));
+
+
+export const  MyLinkButton = styled(Button)(({ theme }) => ({
+  margin: theme.spacing(0.5),
+  background: "linear-gradient(45deg, #0066cc, #33ccff)",
+  color: theme.palette.common.white,
+  width: "90%",
+ 
+  
+  [theme.breakpoints.up("xs")]: {
+    fontSize: "12px",
+    
+  },
+  ":hover": {
+    color: theme.palette.error.main,
+    background: "linear-gradient(45deg, white, white)",
+    
   },
 }));
 

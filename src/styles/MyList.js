@@ -5,6 +5,10 @@ export const MyList = styled(List)(({ theme }) => ({
   textAlign: "start",
   display: "flex",
   flexDirection: "column",
+  color: theme.palette.common.black,
+  
+  
+  
   marginRight: theme.spacing(2),
 
   [theme.breakpoints.up("xs")]: {

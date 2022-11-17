@@ -29,3 +29,10 @@ export const MyBox = styled(Box)(({ theme }) => ({
   "& .MuiTextField-root": { width: "10ch" },
   "& fieldset": { border: "none" },
 }));
+
+export const MyBoxControl = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "center",
+  alignItems: "center",
+}));
