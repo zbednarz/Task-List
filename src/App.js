@@ -9,6 +9,7 @@ import Error from "./pages/Error";
 import SharedLayout from "./pages/SharedLayout";
 import theme from "./styles/styles";
 import { ThemeProvider } from "@mui/material/styles";
+import TodoPage from "./pages/TodoPage";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -37,9 +38,7 @@ function App() {
             <Route index element={<Home />} />
             <Route
               path="form"
-              element={
-                <Form todos={todos} setTodos={setTodos} setFilter={setFilter} />
-              }
+              element={<Form todos={todos} setTodos={setTodos} />}
             />
             <Route path="todo" element={<Todo />} />
             <Route
@@ -49,9 +48,11 @@ function App() {
                   filtered={filtered}
                   todos={todos}
                   setTodos={setTodos}
+                  setFilter={setFilter}
                 />
               }
             />
+            <Route path="todolist/:todoId" element={<TodoPage />} />
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>

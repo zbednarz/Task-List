@@ -3,7 +3,7 @@ import MenuItem from "@mui/material/MenuItem";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
-export const MyBoxBottomNavigation = styled(Box)(({ theme }) => ({
+export const MyBoxBottomNavigation = styled(Box)(() => ({
   display: "flex",
   alignContent: "center",
   justifyContent: "center",
@@ -15,12 +15,13 @@ export const MyBoxBottomNavigation = styled(Box)(({ theme }) => ({
   width: "100%",
 }));
 
-export const MyMenuItem = styled(MenuItem)(({ theme }) => ({
+export const MyMenuItem = styled(MenuItem)(() => ({
   backgroundColor: "#000",
 }));
 
-export const MyLink = styled(Link)(({ theme }) => ({
+export const MyLink = styled(Link)(() => ({
   color: "white",
   textDecoration: "none",
   margin: "8px",
+  fontSize: "20px",
 }));

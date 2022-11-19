@@ -5,4 +5,10 @@ export const MyTypography = styled(Typography)(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
   marginTop: theme.spacing(4),
+  [theme.breakpoints.up("xs")]: {
+    fontSize: "20px",
+  },
+  [theme.breakpoints.up("sm")]: {
+    fontSize: "42px",
+  },
 }));

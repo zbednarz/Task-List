@@ -22,6 +22,7 @@ export const DeleteButton = styled(Button)(({ theme }) => ({
   background: "linear-gradient(45deg, #dd2c00, #FF9e80)",
   color: theme.palette.common.white,
   width: "90%",
+  textDecoration: "none",
   [theme.breakpoints.up("xs")]: {
     fontSize: "12px",
   },
@@ -31,22 +32,18 @@ export const DeleteButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-
-export const  MyLinkButton = styled(Button)(({ theme }) => ({
+export const MyLinkButton = styled(Button)(({ theme }) => ({
   margin: theme.spacing(0.5),
   background: "linear-gradient(45deg, #0066cc, #33ccff)",
   color: theme.palette.common.white,
   width: "90%",
- 
-  
+
   [theme.breakpoints.up("xs")]: {
     fontSize: "12px",
-    
   },
   ":hover": {
     color: theme.palette.error.main,
     background: "linear-gradient(45deg, white, white)",
-    
   },
 }));
 
