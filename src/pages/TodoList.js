@@ -4,7 +4,7 @@ import { ListContainer } from "../styles/ListContainer";
 import { MyTypography } from "../styles/MyTypography";
 import Holder from "../Holder";
 import MySelect from "../styles/MyForm";
-import { MenuItem } from "@mui/material";
+import MenuItem from "@mui/material/MenuItem";
 
 const TodoList = ({ todos, setTodos, filtered, setFilter }) => {
   const filterHandler = (e) => {
