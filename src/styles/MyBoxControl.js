@@ -7,3 +7,12 @@ export const MyBoxControl = styled(Box)(() => ({
   justifyContent: "center",
   alignItems: "center",
 }));
+
+export const MyReturnBox = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  flexWrap: "wrap",
+  justifyContent: "center",
+  alignItems: "center",
+  marginTop: theme.spacing(1),
+}));

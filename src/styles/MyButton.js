@@ -75,3 +75,18 @@ export const NewTask = styled(Button)(({ theme }) => ({
     backgroundColor: theme.palette.info.dark,
   },
 }));
+
+export const MyReturnButton = styled(Button)(({ theme }) => ({
+  margin: theme.spacing(0.5),
+  background: "linear-gradient(45deg, white, black)",
+  color: theme.palette.common.white,
+  marginTop: theme.spacing(2),
+
+  [theme.breakpoints.up("xs")]: {
+    fontSize: "12px",
+  },
+  ":hover": {
+    color: theme.palette.error.main,
+    background: "linear-gradient(45deg, black, white)",
+  },
+}));

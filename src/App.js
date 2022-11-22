@@ -15,6 +15,18 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
   const [filtered, setFiltered] = useState([]);
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   useEffect(() => {
     filterHandler(); // eslint-disable-next-line
@@ -38,7 +50,15 @@ function App() {
             <Route index element={<Home />} />
             <Route
               path="form"
-              element={<Form todos={todos} setTodos={setTodos} />}
+              element={
+                <Form
+                  todos={todos}
+                  setTodos={setTodos}
+                  handleClick={handleClick}
+                  handleClose={handleClose}
+                  open={open}
+                />
+              }
             />
             <Route path="todo" element={<Todo />} />
             <Route
