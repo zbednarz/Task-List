@@ -9,11 +9,24 @@ import Error from "./pages/Error";
 import SharedLayout from "./pages/SharedLayout";
 import theme from "./styles/styles";
 import { ThemeProvider } from "@mui/material/styles";
+import TodoPage from "./pages/TodoPage";
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
   const [filtered, setFiltered] = useState([]);
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   useEffect(() => {
     filterHandler(); // eslint-disable-next-line
@@ -38,7 +51,13 @@ function App() {
             <Route
               path="form"
               element={
-                <Form todos={todos} setTodos={setTodos} setFilter={setFilter} />
+                <Form
+                  todos={todos}
+                  setTodos={setTodos}
+                  handleClick={handleClick}
+                  handleClose={handleClose}
+                  open={open}
+                />
               }
             />
             <Route path="todo" element={<Todo />} />
@@ -49,9 +68,11 @@ function App() {
                   filtered={filtered}
                   todos={todos}
                   setTodos={setTodos}
+                  setFilter={setFilter}
                 />
               }
             />
+            <Route path="todolist/:todoId" element={<TodoPage />} />
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>
